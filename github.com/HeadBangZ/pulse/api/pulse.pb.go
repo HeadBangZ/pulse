@@ -177,7 +177,7 @@ const file_api_pulse_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12!\n" +
 	"\fresponse_msg\x18\x02 \x01(\tR\vresponseMsg2F\n" +
 	"\fPulseService\x126\n" +
-	"\aSendLog\x12\x14.pulse.v1.LogRequest\x1a\x15.pulse.v1.LogResponseB\"Z codeberg.org/Wislow/pulse/api;pbb\x06proto3"
+	"\aSendLog\x12\x14.pulse.v1.LogRequest\x1a\x15.pulse.v1.LogResponseB#Z!github.com/HeadBangZ/pulse/api;pbb\x06proto3"
 
 var (
 	file_api_pulse_proto_rawDescOnce sync.Once

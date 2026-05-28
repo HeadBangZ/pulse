@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/HeadBangZ/pulse"
+	pb "github.com/HeadBangZ/pulse/api"
 
 	"google.golang.org/grpc"
 )
