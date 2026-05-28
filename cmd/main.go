@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	pb "codeberg.org/Wislow/pulse/api"
+	pb "github.com/HeadBangZ/pulse"
 
 	"google.golang.org/grpc"
 )

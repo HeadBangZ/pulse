@@ -1,4 +1,4 @@
-module codeberg.org/Wislow/pulse
+module github.com/HeadBangZ/pulse
 
 go 1.25.4
 
