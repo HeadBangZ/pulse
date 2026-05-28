@@ -1,0 +1,50 @@
+version: '3'
+
+vars:
+  BINARY_NAME: pulse-ingestor
+  WINDOWS_BINARY: "{{.BINARY_NAME}}.exe"
+  LINUX_BINARY: "{{.BINARY_NAME}}"
+
+tasks:
+  init:
+    desc: Install Go dependencies and requirements
+    cmds:
+      - go get google.golang.org/grpc
+      - go get google.golang.org/protobuf
+      - go mod tidy
+    
+  proto:
+    desc: Generate Go source code from the .proto contract
+    cmds:
+      - protoc --go_out=. --go-grpc_out=. api/pulse.proto
+
+  build:windows:
+    desc: Compile the Go ingestor binary
+    deps: [proto]
+    cmds:
+      - GOOS=windows GOARCH=amd64 go build -o {{.WINDOWS_BINARY}} ./cmd/main.go
+
+  build:linux:
+    desc: Compile the Go ingestor binary
+    deps: [proto]
+    cmds:
+      - GOOS=linux GOARCH=amd64 go build -o {{.LINUX_BINARY}} ./cmd/main.go
+
+  build:all:
+    desc: Compile the Go ingestor binary
+    deps: [proto]
+    cmds:
+      - GOOS=windows GOARCH=amd64 go build -o {{.WINDOWS_BINARY}} ./cmd/main.go
+      - GOOS=linux GOARCH=amd64 go build -o {{.LINUX_BINARY}} ./cmd/main.go
+
+  run:windows:
+    desc: Run the Go ingestor locally on Windows
+    deps: [build:windows]
+    cmds:
+      - ./{{.WINDOWS_BINARY}}
+
+  run:linux:
+    desc: Run the Go ingestor locally on Linux
+    deps: [build:linux]
+    cmds:
+      - ./{{.LINUX_BINARY}}

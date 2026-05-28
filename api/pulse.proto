@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package pulse.v1;
+
+option go_package = "codeberg.org/Wislow/pulse/api;pb";
+
+service PulseService {
+  rpc SendLog (LogRequest) returns (LogResponse);
+}
+
+message LogRequest {
+  string project_id = 1;
+  string service_name = 2;
+  string log_level = 3;
+  string request_msg = 4;
+  double latency_ms = 5;
+  int64 timestamp = 6;
+}
+
+message LogResponse {
+  bool success = 1;
+  string response_msg = 2;
+}
