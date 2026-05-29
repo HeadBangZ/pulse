@@ -11,6 +11,7 @@ tasks:
     cmds:
       - go get google.golang.org/grpc
       - go get google.golang.org/protobuf
+      - go mod vendor
       - go mod tidy
     
   proto:
