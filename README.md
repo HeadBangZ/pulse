@@ -1,6 +1,6 @@
 # Pulse
 
-Pulse is a gRPC based log ingestor designed to securely receive and queue logs from distributed services (That is the plan!)
+Pulse is a gRPC based log ingestor designed to securely receive and queue logs from centralized services (That is the plan!)
 
 ## Prerequisites
 To work on this project, ensure you have the following installed:
